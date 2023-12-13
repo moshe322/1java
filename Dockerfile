@@ -7,8 +7,9 @@ RUN apt-get update && \
 # Install Maven
 ENV MAVEN_VERSION=3.8.4
 ENV MAVEN_HOME=/opt/maven
-RUN mkdir -p /opt/maven && \
-    wget -qO /tmp/apache-maven.tar.gz "https://apache.osuosl.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz" 
+RUN mkdir -p /opt/maven 
+WORKDIR /opt/maven/
+RUN wget -qO /tmp/apache-maven.tar.gz "https://apache.osuosl.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz" 
 RUN tar -xzvf /tmp/apache-maven.tar.gz -C $MAVEN_HOME --strip-components=1 && \
     rm /tmp/apache-maven.tar.gz
 # Update PATH to include Maven binaries
