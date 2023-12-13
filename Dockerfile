@@ -5,12 +5,10 @@ RUN apt-get update && \
     apt-get install -y wget && \
     rm -rf /var/lib/apt/lists/*
 # Install Maven
-ENV MAVEN_VERSION=3.8.4
-ENV MAVEN_HOME=/opt/maven
 RUN mkdir -p /opt/maven 
 WORKDIR /opt/maven/
-RUN wget -qO "https://apache.osuosl.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz" 
-RUN tar -xzvf  apache-maven-3.8.4-bin.tar.gz -C /opt/maven --strip-components=1 && rm /tmp/apache-maven.tar.gz
+RUN wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz 
+RUN tar -xzvf  apache-maven-3.9.6-bin.tar.gz -C /opt/maven --strip-components=1 && rm /tmp/apache-maven.tar.gz
 # Set the working directory
 WORKDIR /app
 # Copy your application files into the container
