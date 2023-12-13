@@ -8,7 +8,7 @@ RUN apt-get update && \
 RUN mkdir -p /opt/maven 
 WORKDIR /opt/maven/
 RUN wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz 
-RUN tar -xzvf  apache-maven-3.9.6-bin.tar.gz -C /opt/maven --strip-components=1 && rm /tmp/apache-maven.tar.gz
+RUN tar -xzvf  apache-maven-3.9.6-bin.tar.gz -C /opt/maven 
 # Set the working directory
 WORKDIR /app
 # Copy your application files into the container
