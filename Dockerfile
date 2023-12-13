@@ -1,13 +1,12 @@
 # Use an OpenJDK base image
 FROM openjdk:11
-# Set environment variables
-ENV MAVEN_VERSION=3.8.4
-ENV MAVEN_HOME=/opt/maven
 # Install dependencies
 RUN apt-get update && \
     apt-get install -y wget && \
     rm -rf /var/lib/apt/lists/*
 # Install Maven
+ENV MAVEN_VERSION=3.8.4
+ENV MAVEN_HOME=/opt/maven
 RUN mkdir -p $MAVEN_HOME && \
     wget -qO /tmp/apache-maven.tar.gz "https://apache.osuosl.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz" 
 RUN tar -xzvf /tmp/apache-maven.tar.gz -C $MAVEN_HOME --strip-components=1 && \
