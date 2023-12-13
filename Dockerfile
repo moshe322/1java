@@ -9,10 +9,8 @@ ENV MAVEN_VERSION=3.8.4
 ENV MAVEN_HOME=/opt/maven
 RUN mkdir -p /opt/maven 
 WORKDIR /opt/maven/
-RUN wget -qO /tmp/apache-maven.tar.gz "https://apache.osuosl.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz" 
-RUN tar -xzvf /tmp/apache-maven.tar.gz -C $MAVEN_HOME --strip-components=1 && rm /tmp/apache-maven.tar.gz
-# Update PATH to include Maven binaries
-ENV PATH=$MAVEN_HOME/bin:$PATH
+RUN wget -qO "https://apache.osuosl.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz" 
+RUN tar -xzvf  apache-maven-3.8.4-bin.tar.gz -C /opt/maven --strip-components=1 && rm /tmp/apache-maven.tar.gz
 # Set the working directory
 WORKDIR /app
 # Copy your application files into the container
