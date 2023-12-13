@@ -13,5 +13,6 @@ RUN tar -xzvf  apache-maven-3.9.6-bin.tar.gz -C /opt/maven
 WORKDIR /app
 # Copy your application files into the container
 COPY . /app
+RUN mvn clean install
 # Your additional Dockerfile instructions go here
 CMD ["mvn", "clean", "install"]
