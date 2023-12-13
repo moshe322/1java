@@ -29,9 +29,9 @@ CMD ["mvn", "clean", "install"]
 
 FROM tomcat:8-alpine
 
-WORKDIR /usr/local/tomcat/webapps
+WORKDIR /app
 
-COPY --from=build /app/target/webapp.war /usr/local/tomcat/webapps
+COPY --from=build target/webapp.war /usr/local/tomcat/webapps
 
 EXPOSE 8080
 
