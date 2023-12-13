@@ -26,4 +26,5 @@ RUN mvn clean install
 
 # Your additional Dockerfile instructions go here
 CMD ["mvn", "clean", "install"]
+EXPOSE 8080
 
