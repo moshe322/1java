@@ -31,7 +31,7 @@ FROM tomcat:8-alpine
 
 WORKDIR /usr/local/tomcat/webapps
 
-COPY target/webapp.war /usr/local/tomcat/webapps
+COPY --from=build /app/target/webapp.war /usr/local/tomcat/webapps
 
 EXPOSE 8080
 
