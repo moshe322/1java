@@ -26,5 +26,12 @@ RUN mvn clean install
 
 # Your additional Dockerfile instructions go here
 CMD ["mvn", "clean", "install"]
+
+FROM tomcat:8-alpine
+
+WORKDIR /usr/local/tomcat/webapps
+
+COPY target/webapp.war /usr/local/tomcat/webapps
+
 EXPOSE 8080
 
